@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+
+<link href="/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+
+<title>Sample Web</title>
+</head>
+<body>
+
+<header th:insert="fragments/page_header::pageHeader"></header>
+
+<main>
+
+	<div class="container history">
+		<div class="noData hidden">
+			<p class="info">購入履歴はありません。</p>
+		</div>
+		<div>
+			<h2>購入履歴</h2>
+		</div>
+		<table class="history">
+			<tr>
+				<th>購入日時</th><th>商品名</th><th>価格(円)</th><th>個数</th><th>宛名</th><th>宛先住所</th>
+			</tr>
+			<tr>
+				<td>
+				 2019/12/11 12:00:00
+				</td>
+				<td>バラ</td>
+				<td>1200</td>
+				<td>2</td>
+				<td>山田 太郎</td>
+				<td class="address">東京都豊島区池袋１－１－１</td>
+			</tr>
+			<tr>
+				<td>
+				 2019/12/11 12:00:00
+				</td>
+				<td>ラベンダー</td>
+				<td>1000</td>
+				<td>1</td>
+				<td>山田 太郎</td>
+				<td class="address">東京都豊島区池袋１－１－１</td>
+			</tr>
+			<tr>
+				<td>
+				 2019/12/10 12:00:00
+				</td>
+				<td>オリーブ</td>
+				<td>1400</td>
+				<td>2</td>
+				<td>田中 次郎</td>
+				<td class="address">
+					<div>東京都渋谷区幡ヶ谷２－２－２<br />〇〇ハイツ１０２</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				 2019/12/09 12:00:00
+				</td>
+				<td>アデニウム</td>
+				<td>1000</td>
+				<td>1</td>
+				<td>鈴木 一子</td>
+				<td class="address">
+					<div>千葉県千葉市稲毛区園生３－３－３</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				 2019/12/08 12:00:00
+				</td>
+				<td>シクラメン</td>
+				<td>1000</td>
+				<td>3</td>
+				<td>高橋 五郎</td>
+				<td class="address">
+					<div>埼玉県所沢市山口４－４－４</div>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonArea">
+			<button>削除</button>
+		</div>
+	
+	</div>
+
+</main>
+
+</body>
+</html>

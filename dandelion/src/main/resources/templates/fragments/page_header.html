@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<th:block th:fragment="pageHeader">
+	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet"
+			href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="/js/util/stringUtil.js" th:src="@{/js/util/stringUtil.js}"></script>
+	<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
+	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
+	<script>
+		$(() => {
+			$('#loginError').dialog(dialogConfig.loginError);
+			
+			$('button#login').on('click', () => {
+				$('#loginError').dialog('open');
+			});
+		});
+	</script>
+	<div class="headerTop">
+		<h1 class="logo"><a href="/sampleweb/">Florist YU</a></h1>
+		<span class="signup">
+			<a href="/sampleweb/user/" th:href="@{/sampleweb/user/}">
+			新規ユーザ登録はこちら
+			</a>
+		</span>
+<!--		 <span class="welcomeMsg" -->
+<!--			 th:text="'ようこそ！ '+${userName != null ? userName : 'ゲスト'}+' さん'"> -->
+<!--		 </span> -->
+		<span class="welcomeMsg"
+			th:text="'ようこそ！ '+${userName != null ? userName : 'taro@abc.com'}+' さん'">
+		</span>
+	</div>
+	 
+	<nav>
+		<div class="loginArea">
+			<input type="text" name="userName" />
+			<input type="password" name="password" />
+<!--			 <button id="login">ログイン</button> -->
+			<button id="login">ログアウト</button>
+		</div>
+		<ul class="menu">
+			<li><a href="#">カート</a></li>
+			<li><a href="#">マイページ</a></li>
+		</ul>
+	</nav>
+		<!-- Modal Dialog (ログインエラー) -->
+	<div th:insert="fragments/dialog_login_error::dialogLoginError"></div>
+	
+</th:block>
+
+
+</body>
+</html>
